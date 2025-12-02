@@ -4,6 +4,14 @@ public class Book {
     private String title;
     private Author[] authors;
     private String isbn;
+    private BookStatus bookStatus;
+    public Book(String title, Author[] authors, String isbn, BookStatus bookStatus) {
+        this.setTitle(title);
+        this.setAuthors(authors);
+        this.setIsbn(isbn);
+        this.setBookStatus(bookStatus);
+    }
+
     public Book(String title, Author[] authors, String isbn) {
         this.setTitle(title);
         this.setAuthors(authors);
@@ -44,6 +52,14 @@ public class Book {
     }
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public BookStatus getBookStatus() {
+        return bookStatus;
+    }
+
+    public void setBookStatus(BookStatus bookStatus) {
+        this.bookStatus = bookStatus;
     }
 
     @Override

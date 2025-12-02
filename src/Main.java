@@ -23,7 +23,7 @@ public class Main {
         System.out.println(author2);
         System.out.println(author3);
         Reader reader1 = new Reader ("Олена", "Ковальчук", 1001);
-        Reader reader2 = Reader.newReaderWithoutId("Андрій", "Мельник");
+        Reader reader2 = new Reader("Андрій", "Мельник", 1002);
         System.out.println("\n--- Читачі ---");
         System.out.println(reader1);
         System.out.println(reader2);
@@ -31,9 +31,9 @@ public class Main {
         Book book2 = Book.withoutIsbn("Лісова пісня", new Author[]{author2});
         Book book3 = Book.of("1984", new Author[]{author3}, "978-014-118-776-1");
         System.out.println("\n--- Книги ---");
-        System.out.println(book1.getTitle() + " by " + author1.getLastName());
-        System.out.println(book2.getTitle() + " by " + author2.getLastName());
-        System.out.println(book3.getTitle() + " by " + author3.getLastName());
+        System.out.println(book1.getTitle() + " by " + author1.lastName());
+        System.out.println(book2.getTitle() + " by " + author2.lastName());
+        System.out.println(book3.getTitle() + " by " + author3.lastName());
         Membership membership1 = Membership.createStandardAnnual(reader1);
         Membership membership2 = Membership.createLifetime(reader2, issueDate);
         System.out.println("\n--- Членство ---");

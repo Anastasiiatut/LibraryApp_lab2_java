@@ -5,10 +5,18 @@ public class Membership {
     private Reader reader;
     private Date startDate;
     private Date endDate;
+    private MembershipType membershipType;
     public Membership(Reader reader, Date startDate, Date endDate) {
         this.setReader(reader);
         this.setStartDate(startDate);
         this.setEndDate(endDate);
+    }
+
+    public Membership(Reader reader, Date startDate, Date endDate,  MembershipType membershipType) {
+        this.setReader(reader);
+        this.setStartDate(startDate);
+        this.setEndDate(endDate);
+        this.setMembershipType(membershipType);
     }
 
     public static Membership createStandardAnnual(Reader reader) {
@@ -44,6 +52,14 @@ public class Membership {
             throw new IllegalArgumentException("End date cannot be before start date");
         }
         this.endDate = endDate;
+    }
+
+    public MembershipType getMembershipType() {
+        return membershipType;
+    }
+
+    public void setMembershipType(MembershipType membershipType) {
+        this.membershipType = membershipType;
     }
 
     @Override
