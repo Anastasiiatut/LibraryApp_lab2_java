@@ -1,0 +1,53 @@
+import java.util.Arrays;
+
+public class Book {
+    private String title;
+    private Author[] authors;
+    private String isbn;
+    public Book(String title, Author[] authors, String isbn) {
+        this.setTitle(title);
+        this.setAuthors(authors);
+        this.setIsbn(isbn);
+    }
+
+    public static Book of(String title, Author[] authors, String isbn) {
+        return new Book(title, authors, isbn);
+    }
+
+    public static Book withSingleAuthor(String title, Author author, String isbn) {
+        return new Book(title, new Author[]{author}, isbn);
+    }
+
+    public static Book withoutIsbn(String title, Author[] authors) {
+        return new Book(title, authors, null);
+    }
+
+
+
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        if (title.length()<3) {
+            throw new IllegalArgumentException("Title must have at least 3 characters");
+        }
+        this.title = title;
+    }
+    public Author[] getAuthors() {
+        return authors;
+    }
+    public void setAuthors(Author[] authors) {
+        this.authors = authors;
+    }
+    public String getIsbn() {
+        return isbn;
+    }
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    @Override
+    public String toString() {
+        return "Book title: " + title + ", authors: " + Arrays.toString(authors) + ", isbn: " + isbn;
+    }
+}
