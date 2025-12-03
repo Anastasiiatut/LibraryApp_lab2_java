@@ -1,6 +1,11 @@
+package main;
+
 import java.util.Arrays;
+import java.util.logging.Logger;
 
 public class Book {
+    private static final Logger LOGGER = Logger.getLogger(Book.class.getName());
+
     private String title;
     private Author[] authors;
     private String isbn;
@@ -10,12 +15,17 @@ public class Book {
         this.setAuthors(authors);
         this.setIsbn(isbn);
         this.setBookStatus(bookStatus);
+
+        LOGGER.info("Book (with status) created: " + title + " " + authors.toString());
     }
 
     public Book(String title, Author[] authors, String isbn) {
         this.setTitle(title);
         this.setAuthors(authors);
         this.setIsbn(isbn);
+
+        LOGGER.info("Book (without status) created: " + title + " " + authors.toString());
+
     }
 
     public static Book of(String title, Author[] authors, String isbn) {
@@ -64,6 +74,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book title: " + title + ", authors: " + Arrays.toString(authors) + ", isbn: " + isbn;
+        return "main.Book title: " + title + ", authors: " + Arrays.toString(authors) + ", isbn: " + isbn;
     }
 }

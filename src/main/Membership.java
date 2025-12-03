@@ -1,7 +1,12 @@
+package main;
+
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Logger;
 
 public class Membership {
+    private static final Logger LOGGER = Logger.getLogger(Membership.class.getName());
+
     private Reader reader;
     private Date startDate;
     private Date endDate;
@@ -10,6 +15,8 @@ public class Membership {
         this.setReader(reader);
         this.setStartDate(startDate);
         this.setEndDate(endDate);
+
+        LOGGER.info("Membership created");
     }
 
     public Membership(Reader reader, Date startDate, Date endDate,  MembershipType membershipType) {
@@ -17,6 +24,8 @@ public class Membership {
         this.setStartDate(startDate);
         this.setEndDate(endDate);
         this.setMembershipType(membershipType);
+
+        LOGGER.info("Membership with type created");
     }
 
     public static Membership createStandardAnnual(Reader reader) {
@@ -64,6 +73,6 @@ public class Membership {
 
     @Override
     public String toString() {
-        return "Membership of " + reader + " from " + startDate + " til " + endDate;
+        return "main.Membership of " + reader + " from " + startDate + " til " + endDate;
     }
 }

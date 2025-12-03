@@ -1,6 +1,11 @@
+package main;
+
 import java.util.Date;
+import java.util.logging.Logger;
 
 public class Loan {
+    private static final Logger LOGGER = Logger.getLogger(Loan.class.getName());
+
     private Book book;
     private Reader reader;
     private Date issueDate;
@@ -10,6 +15,7 @@ public class Loan {
         this.setReader(reader);
         this.setIssueDate(issueDate);
         this.setReturnDate(returnDate);
+        LOGGER.info(String.format("Created Loan with Book: %s and Reader: %s", book, reader));
     }
 
     public static Loan of(Book book, Reader reader, Date issueDate, Date returnDate) {
@@ -48,7 +54,7 @@ public class Loan {
 
     @Override
     public String toString() {
-        return "Loan book=" + book + ", reader=" + reader + ", issueDate=" + issueDate;
+        return "main.Loan book=" + book + ", reader=" + reader + ", issueDate=" + issueDate;
     }
 
 }
